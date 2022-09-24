@@ -6,10 +6,13 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 
 import com.google.android.material.tabs.TabLayout;
 
@@ -22,6 +25,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button btnFetchData;
     RadioGroup rdgGender;
     RadioButton rdbSelected;
+    Spinner spnProvinces;
+    AutoCompleteTextView atvPrograms;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,12 +40,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         this.edtName = findViewById(R.id.edit_name);
         this.edtEmail = findViewById(R.id.edit_email);
         this.rdgGender = findViewById(R.id.rdg_gender);
-
+        this.spnProvinces = findViewById(R.id.spn_provinces);
+        this.atvPrograms = findViewById(R.id.atv_programs);
 
         this.btnFetchData = findViewById(R.id.fetch_data);
         this.btnFetchData.setOnClickListener(this);
 
-
+        //Adapter
+        ArrayAdapter programsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.programs) );
+        this.atvPrograms.setAdapter(programsAdapter);
+        this.atvPrograms.setThreshold(3);
 
     }
 
@@ -75,6 +84,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             String selectedGender = this.rdbSelected.getText().toString();
             Log.d(TAG, "fetchData: \n name : " + name + "\n email : " + email + "\n Gender : " + selectedGender);
         }
+
+        String province = "";
+        province = this.spnProvinces.getSelectedItem().toString();
+        Log.d(TAG, "fetchData: \n name : " + name + "\n email : " + email + "\n province : " + province);
+
+
 
 
     }
