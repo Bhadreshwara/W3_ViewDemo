@@ -1,11 +1,33 @@
 <resources>
     <string name="app_name">Food Scanner App</string>
 
+    <string name="provinces">Ontario</string>
+
+    <string-array name="provinces">
+        <item>Ontario</item>
+        <item>Alberta</item>
+        <item>British Columbia</item>
+        <item>Saskatchewan</item>
+        <item>Manitoba</item>
+        <item>Newfoundland and Labrador</item>
+        <item>Nunavut</item>
+    </string-array>
+
+    <string-array name="programs">
+        <item>AI</item>
+        <item>Computer Programmer</item>
+        <item>Mobile App Design and Development</item>
+        <item>Computer Security</item>
+        <item>Computer Network</item>
+    </string-array>
+
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
 
         <item name="android:textColorPrimary">@color/black</item>
     </style>
+
+
 
 
 </resources>
